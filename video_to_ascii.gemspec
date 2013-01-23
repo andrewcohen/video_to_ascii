@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["andrew@eastmedia.com"]
   #gem.description   = %q{Write a gem description}
   gem.summary       = %q{A Command line tool to take a video from your iSight camera and play it back as ASCII art}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/andrewcohen/video_to_ascii"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
