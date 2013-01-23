@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'video_to_ascii'
+
+VideoToAscii.new
