@@ -1,11 +1,12 @@
 require "video_to_ascii/version"
 require 'asciiart'
 require 'streamio-ffmpeg'
+require 'highline/import'
 
 class VideoToAscii
   attr_accessor :ascii_images
 
-  def initialize()
+  def initialize
     @ascii_images = []
 
     create_required_directories()
@@ -16,7 +17,7 @@ class VideoToAscii
     screenshots_from_video(video)
     convert_all_images()
 
-    puts "Press any key to watch."
+    puts "Press ENTER to watch."
     ready = gets.chomp!
 
     if ready
@@ -32,14 +33,25 @@ class VideoToAscii
   end
 
   def capture_video
-    puts "Recording Video..."
-    `./bin/wacaw --video videos/video`
+
+    @video_length = ask("How long would you like the video to be?", Integer)
+
+    if @video_length
+      puts "Recording Video for #{@video_length} seconds ..."
+      `./bin/wacaw --video --duration #{@video_length} videos/video`
+    else
+      puts "Recording Video for 15s ..."
+      `./bin/wacaw --video videos/video`
+    end
   end
 
   def screenshots_from_video(video)
     step_arr = []
 
     (0.0...video.duration).step(0.1).each { |x| step_arr << x.round(2) }
+
+    #make sure steps are uniq or ffmpeg will crash and burn
+    step_arr.uniq!
 
     step_arr.each_with_index do |step, i|
       video.screenshot("images/#{i}.jpg", seek_time: step)

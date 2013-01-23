@@ -15,8 +15,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = VideoToAscii::VERSION
 
-  gem.add_dependency('asciiart')
+  gem.add_dependency('asciiart', '0.0.2')
   gem.add_dependency('streamio-ffmpeg')
+  gem.add_dependency('highline')
 
   gem.add_development_dependency('pry')
 end
