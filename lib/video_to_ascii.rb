@@ -33,7 +33,7 @@ class VideoToAscii
 
   def capture_video
     puts "Recording Video..."
-    `./lib/wacaw --video videos/video`
+    `./bin/wacaw --video videos/video`
   end
 
   def screenshots_from_video(video)
@@ -58,8 +58,8 @@ class VideoToAscii
 
   def play_movie
     @ascii_images.each do |image|
-      sleep 0.1
       puts image
+      sleep 0.1
       system("clear")
     end
   end
