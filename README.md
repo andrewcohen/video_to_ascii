@@ -1,6 +1,8 @@
 # VideoToAscii
 
-TODO: Write a gem description
+A command line tool that takes a video using your iSight camera and plays it back as ASCII art.
+
+**Currently compatible with OSX only.
 
 ## Installation
 
@@ -18,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ video_to_ascii
 
 ## Contributing
 
