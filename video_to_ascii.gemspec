@@ -4,8 +4,8 @@ require File.expand_path('../lib/video_to_ascii/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["andrewcohen"]
   gem.email         = ["andrew@eastmedia.com"]
-  gem.description   = %q{Write a gem description}
-  gem.summary       = %q{Write a gem summary}
+  #gem.description   = %q{Write a gem description}
+  gem.summary       = %q{A Command line tool to take a video from your iSight camera and play it back as ASCII art}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
