@@ -33,16 +33,12 @@ class VideoToAscii
   end
 
   def capture_video
-
     @video_length = ask("How long would you like the video to be?", Integer)
+    path = File.expand_path('../bin/wacaw', File.dirname(__FILE__))
 
-    if @video_length
-      puts "Recording Video for #{@video_length} seconds ..."
-      `./bin/wacaw --video --duration #{@video_length} videos/video`
-    else
-      puts "Recording Video for 15s ..."
-      `./bin/wacaw --video videos/video`
-    end
+    puts "Recording Video for #{@video_length} seconds ..."
+
+    `#{path} --video --duration #{@video_length} videos/video`
   end
 
   def screenshots_from_video(video)
