@@ -61,6 +61,7 @@ class VideoToAscii
     puts "asciiing the world"
     images.each do |image|
       convert_to_ascii(image)
+      print "."
     end
   end
 
@@ -74,7 +75,7 @@ class VideoToAscii
 
   def convert_to_ascii(image)
       image = AsciiArt.new("#{image}")
-      @ascii_images << image.to_ascii_art
+      @ascii_images << image.to_ascii_art(color: true)
   end
 
   def cleanup
